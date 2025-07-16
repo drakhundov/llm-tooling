@@ -46,12 +46,12 @@ class Tool:
         return self.func(*args, **kwargs)
 
 
-def __convert_type(_type):
+def __convert_type(_type: type) -> str:
     """Convert a type (like int, str) into a string,"""
     return _type.__name__ if hasattr(_type, '__name__') else str(_type)
 
 
-def __parse_args(func):
+def __parse_args(func: Callable) -> (List, str):
     """
     Takes a function and returns:
     - a tuple with function parameters metadata (name, type)
@@ -66,7 +66,8 @@ def __parse_args(func):
     return args, __convert_type(signature.return_annotation)
 
 
-def agent_tool(func):
+# ! Decorator.
+def agent_tool(func: Callable) -> Tool:
     """
     A decorator used to convert a regular function into a Tool class.
     It is required so that the agent could be informed about the tools it could use.
