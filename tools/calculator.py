@@ -13,11 +13,12 @@ class Operation(IntEnum):
 @agent_tool
 def calculator(a: int, b: int, op: Operation) -> Optional[int]:
     """
-    Calculate simple arithmetic expressions involving two operands and an operator:
-    - Add
-    - Subtract
-    - Multiply
-    - Divide
+    Calculate simple arithmetic expressions involving two operands and an operator.
+    The operator is specified by a number:
+    - Add: 1
+    - Subtract: 2
+    - Multiply: 3
+    - Divide: 4
     """
     if op == Operation.ADD:
         return a + b
