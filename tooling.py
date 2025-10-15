@@ -1,5 +1,5 @@
 import inspect
-from typing import Callable, List, get_type_hints
+from typing import Callable, List, Tuple, get_type_hints
 
 
 class Tool:
@@ -51,7 +51,7 @@ def __convert_type(_type: type) -> str:
     return _type.__name__ if hasattr(_type, '__name__') else str(_type)
 
 
-def __parse_args(func: Callable) -> (List, str):
+def __parse_args(func: Callable) -> Tuple[List, str]:
     """
     Takes a function and returns:
     - a tuple with function parameters metadata (name, type)
